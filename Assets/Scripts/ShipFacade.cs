@@ -1,9 +1,11 @@
-﻿using Zenject;
+﻿using System;
+using Zenject;
 using UnityEngine;
 
-public class ShipFacade
+public class ShipFacade : IPoolable<IMemoryPool>, IDisposable
 {
     ShipHealthHandler _healthHandler;
+    private IMemoryPool _memoryPool;
 
     [Inject]
     public Transform Transform { get; private set; }
@@ -21,5 +23,20 @@ public class ShipFacade
 
     public class Factory : PlaceholderFactory<float, ShipFacade>
     {
+    }
+
+    public void OnDespawned()
+    {
+        _memoryPool = null;
+    }
+
+    public void OnSpawned(IMemoryPool memoryPool)
+    {
+        _memoryPool = memoryPool;
+    }
+
+    public void Dispose()
+    {
+        _memoryPool.Despawn(this);
     }
 }
