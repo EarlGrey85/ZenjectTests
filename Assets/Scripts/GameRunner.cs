@@ -19,6 +19,8 @@ public class GameRunner : ITickable
             var ship = _shipFactory.Create(Random.Range(2.0f, 20.0f));
 
             ship.Transform.position = lastShipPosition;
+            Debug.Log(ship.Transform);
+            Debug.Log(lastShipPosition);
 
             lastShipPosition += Vector3.forward * 2;
         }

@@ -6,12 +6,10 @@ public class ShipFacade : IPoolable<IMemoryPool>, IDisposable
 {
     private IMemoryPool _pool;
     private readonly ShipHealthHandler _healthHandler;
-    private readonly ShipInputHandler _shipInputHandler;
 
-    public ShipFacade(ShipHealthHandler healthHandler, ShipInputHandler shipInputHandler)
+    public ShipFacade(ShipHealthHandler healthHandler)
     {
         _healthHandler = healthHandler;
-        _shipInputHandler = shipInputHandler;
     }
 
     public void TakeDamage(float damage)

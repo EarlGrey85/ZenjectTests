@@ -326,6 +326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShipPrefab: {fileID: 4116116651256873792, guid: 9182000e8c57d964bafc7944e95c4fcd,
     type: 3}
+  ships:
+  - {fileID: 4116116651256873792, guid: 9182000e8c57d964bafc7944e95c4fcd, type: 3}
+  - {fileID: 4116116651256873792, guid: 23054e727f109f64e93d5fb89ffa2bce, type: 3}
 --- !u!114 &1254365797
 MonoBehaviour:
   m_ObjectHideFlags: 0

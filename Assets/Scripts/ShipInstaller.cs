@@ -10,7 +10,6 @@ public class ShipInstaller : Installer<ShipInstaller>
         float speed)
     {
         _speed = speed;
-        Debug.Log(_speed);
     }
 
     public override void InstallBindings()
@@ -20,5 +19,13 @@ public class ShipInstaller : Installer<ShipInstaller>
         Container.BindInterfacesAndSelfTo<ShipInputHandler>().AsSingle();
         Container.BindInstance(_speed).WhenInjectedInto<ShipInputHandler>();
         Container.Bind<ShipHealthHandler>().FromNewComponentOnRoot().AsSingle();
+    }
+
+    private ShipFacade MakeShip()
+    {
+        var ships = Resources.LoadAll<GameObject>("");
+        var obj = Container.InstantiatePrefab(ships[Random.Range(0, ships.Length)]);
+
+        return null;
     }
 }
