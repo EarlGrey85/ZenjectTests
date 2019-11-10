@@ -2,21 +2,27 @@
 using System.Collections;
 using Zenject;
 
-public class ShipInputHandler : MonoBehaviour
+public class ShipInputHandler : ITickable
 {
-    [Inject]
-    float _speed;
+    private readonly Transform _transform;
+    private readonly float _speed;
 
-    public void Update()
+    public ShipInputHandler(float speed, Transform transform)
+    {
+        _transform = transform;
+        _speed = speed;
+    }
+
+    public void Tick()
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            this.transform.position += Vector3.forward * _speed * Time.deltaTime;
+            _transform.position += Vector3.forward * _speed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            this.transform.position -= Vector3.forward * _speed * Time.deltaTime;
+            _transform.position -= Vector3.forward * _speed * Time.deltaTime;
         }
     }
 }

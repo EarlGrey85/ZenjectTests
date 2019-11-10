@@ -1,9 +1,12 @@
 ﻿using Zenject;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+public class ShipFacade
 {
     ShipHealthHandler _healthHandler;
+
+    [Inject]
+    public Transform Transform { get; private set; }
 
     [Inject]
     public void Construct(ShipHealthHandler healthHandler)
@@ -16,7 +19,7 @@ public class Ship : MonoBehaviour
         _healthHandler.TakeDamage(damage);
     }
 
-    public class Factory : PlaceholderFactory<float, Ship>
+    public class Factory : PlaceholderFactory<float, ShipFacade>
     {
     }
 }
