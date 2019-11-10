@@ -1,36 +1,22 @@
 ﻿using UnityEngine;
+using System.Collections;
 using Zenject;
 
-public class ShipInputHandler : ITickable
+public class ShipInputHandler : MonoBehaviour
 {
-    readonly Transform _transform;
-    private float _speed;
+    [Inject]
+    float _speed;
 
-    public ShipInputHandler(
-        float speed,
-        Transform transform)
+    public void Update()
     {
-        _transform = transform;
-        _speed = speed;
-    }
-
-    public void SetSpeed(float speed)
-    {
-        _speed = speed;
-    }
-
-    public void Tick()
-    {
-        Debug.Log(_speed);
-
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            _transform.position += Vector3.forward * _speed * Time.deltaTime;
+            this.transform.position += Vector3.forward * _speed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            _transform.position -= Vector3.forward * _speed * Time.deltaTime;
+            this.transform.position -= Vector3.forward * _speed * Time.deltaTime;
         }
     }
 }

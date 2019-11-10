@@ -324,11 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b797bfa1ba7f542ae4b9822ade1679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShipPrefab: {fileID: 4116116651256873792, guid: 9182000e8c57d964bafc7944e95c4fcd,
+  shipPrefab: {fileID: 1420351401388176948, guid: bf1657b7f987e704196f3f8687b66955,
     type: 3}
-  ships:
-  - {fileID: 4116116651256873792, guid: 9182000e8c57d964bafc7944e95c4fcd, type: 3}
-  - {fileID: 4116116651256873792, guid: 23054e727f109f64e93d5fb89ffa2bce, type: 3}
 --- !u!114 &1254365797
 MonoBehaviour:
   m_ObjectHideFlags: 0

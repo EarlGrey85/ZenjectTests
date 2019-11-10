@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Zenject;
+using UnityEngine;
 
 public class ShipHealthHandler : MonoBehaviour
 {

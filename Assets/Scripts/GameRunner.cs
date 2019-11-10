@@ -3,11 +3,12 @@ using Zenject;
 
 public class GameRunner : ITickable
 {
-    readonly ShipFacade.Factory _shipFactory;
+    readonly Ship _ship;
+    private readonly Ship.Factory _shipFactory;
 
-    Vector3 lastShipPosition;
+    private Vector3 lastShipPosition;
 
-    public GameRunner(ShipFacade.Factory shipFactory)
+    public GameRunner(Ship.Factory shipFactory)
     {
         _shipFactory = shipFactory;
     }
@@ -16,11 +17,8 @@ public class GameRunner : ITickable
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            var ship = _shipFactory.Create(Random.Range(2.0f, 20.0f));
-
-            ship.Transform.position = lastShipPosition;
-            Debug.Log(ship.Transform);
-            Debug.Log(lastShipPosition);
+            var ship = _shipFactory.Create(Random.RandomRange(2, 20));
+            ship.transform.position = lastShipPosition;
 
             lastShipPosition += Vector3.forward * 2;
         }
